@@ -1,7 +1,7 @@
 <!-- resources/views/about.blade.php -->
 
 <h1>О блоге</h1>
-<p>Эксперименты с Laravel на Хекслете</p>
+<p>Эксперименты с Laravel на Хекслете </p>
 <p>{{ implode(', ', $tags) }}</p>
 
 
