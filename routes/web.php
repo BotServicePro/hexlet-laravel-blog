@@ -14,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    return 'hello, world!';
+    return view('main');
+    //return 'hello, world!';
 });
 
 Route::get('about', function() {
-    return view('about');
+    $skills = ['обучение', 'программирование', 'ООП', 'PHP'];
+    return view('about', ['tags' => $skills]);
 });
+
+Route::get('articles', function() {
+    return view('articles');
+});
+
