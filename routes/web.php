@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('about', function() {
-    $skills = ['обучение', 'программирование', 'ООП', 'PHP'];
+    $skills = ['Обучение', 'Программирование', 'ООП', 'PHP'];
     return view('about', ['tags' => $skills]);
 });
 
