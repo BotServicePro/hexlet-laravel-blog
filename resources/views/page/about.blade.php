@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 <!-- Секция, содержимое которой обычный текст. -->
-@section('title', 'О блоге')
+@section('title', 'About')
 
 @section('header')
     <h1>Хедер</h1>

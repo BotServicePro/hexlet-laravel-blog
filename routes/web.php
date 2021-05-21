@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Models\Article;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-    //return 'hello, world!';
-});
+Route::get('/', [PageController::class, 'main'] )->name('page.index');
 
-Route::get('about', function() {
-    $skills = ['Обучение', 'Программирование', 'ООП', 'PHP'];
-    return view('about', ['tags' => $skills]);
-});
+Route::get('about',  [PageController::class, 'about'])->name('page.about');
 
-Route::get('articles', function() {
-    return view('articles');
-});
+Route::get('articles', [PageController::class, 'articles'])->name('page.articles');
 
