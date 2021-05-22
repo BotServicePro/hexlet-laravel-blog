@@ -12,6 +12,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Body</th>
+            <th>Likes</th>
             <th>Created at</th>
             <th>Updated at</th>
         </tr>
@@ -19,8 +20,9 @@
             <tr>
                 <td>{{ $article->id }}</td>
 {{--                <td><a href="{{ route('show.url', ['id' => $url->id]) }}">{{ $url->name }}</a></td>--}}
-                <td>{{ $article->name }}</a></td>
-                <td>{{ $article->body }}</a></td>
+                <td>{{ $article->name }}</td>
+                <td>{{ $article->body }}</td>
+                <td>{{ $article->likes_count }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>{{ $article->updated_at }}</td>
             </tr>

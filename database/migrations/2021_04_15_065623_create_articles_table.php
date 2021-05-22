@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('name'); // название статьи
             $table->text('body'); // тело статьи
+            $table->integer('likes_count')->default(0);
             $table->timestamps();
         });
     }

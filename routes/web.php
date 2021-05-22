@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
-use App\Models\Article;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +20,6 @@ Route::get('/', [PageController::class, 'main'] )->name('page.index');
 Route::get('about',  [PageController::class, 'about'])->name('page.about');
 
 Route::get('articles', [PageController::class, 'articles'])->name('page.articles');
+
+Route::get('rating', [RatingController::class, 'rating'])->name('page.rating');
 

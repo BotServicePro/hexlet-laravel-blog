@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -22,5 +24,21 @@ class PageController extends Controller
     {
         $articlesData = Article::all();
         return view('page.articles', compact('articlesData'));
+    }
+
+    public function articlePost()
+    {
+
+        // insert new article to db
+        DB::table('articles')->insertGetId(
+            [
+                'name' => 'ololo',
+                'body' => 'bodybody',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]
+        );
+
+
     }
 }

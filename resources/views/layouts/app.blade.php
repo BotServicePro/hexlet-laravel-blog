@@ -27,6 +27,9 @@
                         <a class="nav-link " href="{{ route('page.articles') }}">Articles</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link " href="{{ route('page.rating') }}">Rating</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link " href="{{ route('page.about') }}">About</a>
                     </li>
                 </ul>
