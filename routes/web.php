@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ Route::get('/', [PageController::class, 'main'] )->name('page.index');
 
 Route::get('about',  [PageController::class, 'about'])->name('page.about');
 
-Route::get('articles', [PageController::class, 'articles'])->name('page.articles');
+Route::get('articles', [ArticleController::class, 'index'])->name('article.index');
 
-Route::get('rating', [RatingController::class, 'rating'])->name('page.rating');
+Route::get('rating', [RatingController::class, 'rating'])->name('rating.index');
 

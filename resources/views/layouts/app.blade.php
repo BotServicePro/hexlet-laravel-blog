@@ -24,10 +24,10 @@
                         <a class="nav-link active" href="{{ route('page.index') }}">Main</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('page.articles') }}">Articles</a>
+                        <a class="nav-link " href="{{ route('article.index') }}">Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('page.rating') }}">Rating</a>
+                        <a class="nav-link " href="{{ route('rating.index') }}">Rating</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="{{ route('page.about') }}">About</a>

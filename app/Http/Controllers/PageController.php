@@ -9,36 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
-    public function about ()
-    {
-        $skills = ['Обучение', 'Программирование', 'ООП', 'PHP'];
-        return view('page.about', ['tags' => $skills]);
-    }
-
     public function main ()
     {
         return view('page.index');
     }
 
-    public function articles()
+    public function about ()
     {
-        $articlesData = Article::all();
-        return view('page.articles', compact('articlesData'));
-    }
-
-    public function articlePost()
-    {
-
-        // insert new article to db
-        DB::table('articles')->insertGetId(
-            [
-                'name' => 'ololo',
-                'body' => 'bodybody',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]
-        );
-
-
+        $skills = ['Обучение', 'Программирование', 'ООП', 'PHP'];
+        return view('page.about', ['tags' => $skills]);
     }
 }

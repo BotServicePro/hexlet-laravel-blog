@@ -12,6 +12,6 @@ class RatingController extends Controller
             ->select('name', 'likes_count')
             ->orderBy('likes_count', 'DESC')
             ->get();
-        return view('page.rating', compact('articles'));
+        return view('rating.index', compact('articles'));
     }
 }
