@@ -17,6 +17,7 @@ class PageController extends Controller
     public function about ()
     {
         $skills = ['Обучение', 'Программирование', 'ООП', 'PHP'];
-        return view('page.about', ['tags' => $skills]);
+        // compact('articles') => [ 'articles' => $articles ]
+        return view('page.about', compact('skills'));
     }
 }

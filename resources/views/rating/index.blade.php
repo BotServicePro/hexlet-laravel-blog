@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1>Articles Rating</h1>
+        <h1>Top 5 articles</h1>
 
         <table style="width:100%">
             <tr>

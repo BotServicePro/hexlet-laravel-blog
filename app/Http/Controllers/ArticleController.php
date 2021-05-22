@@ -12,8 +12,8 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articlesData = DB::table('articles')->paginate(15);
-        return view('article.index', compact('articlesData'));
+        $articles = DB::table('articles')->paginate(5);
+        return view('article.index', compact('articles'));
     }
 
     public function articlePost()

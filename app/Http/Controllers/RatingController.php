@@ -11,7 +11,7 @@ class RatingController extends Controller
         $articles = DB::table('articles')
             ->select('name', 'likes_count')
             ->orderBy('likes_count', 'DESC')
-            ->get();
+            ->paginate(5);
         return view('rating.index', compact('articles'));
     }
 }
