@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
 class ArticleController extends Controller
 {
     public function index()
@@ -16,9 +15,15 @@ class ArticleController extends Controller
         return view('article.index', compact('articles'));
     }
 
+    public function show($id)
+    {
+        $article = DB::table('articles')->find($id);
+        abort_unless($article, 404);
+        return view('article.show', compact('article'));
+    }
+
     public function articlePost()
     {
-
         // insert new article to db
         DB::table('articles')->insertGetId(
             [
@@ -28,7 +33,5 @@ class ArticleController extends Controller
                 'updated_at' => Carbon::now()
             ]
         );
-
-
     }
 }

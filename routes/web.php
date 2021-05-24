@@ -24,3 +24,5 @@ Route::get('articles', [ArticleController::class, 'index'])->name('article.index
 
 Route::get('rating', [RatingController::class, 'rating'])->name('rating.index');
 
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('article.show');
+
