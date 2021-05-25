@@ -20,8 +20,7 @@
         @foreach ($articles as $article)
             <tr>
                 <td>{{ $article->id }}</td>
-{{--                <td><a href="{{ route('show.url', ['id' => $url->id]) }}">{{ $url->name }}</a></td>--}}
-                <td>{{ $article->name }}</td>
+                <td><a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->name }}</a></td>
                 <td>{{Str::limit($article->body, 200, ' ...')}}</td>
                 <td>{{ $article->likes_count }}</td>
                 <td>{{ $article->created_at }}</td>
