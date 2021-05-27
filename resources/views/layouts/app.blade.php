@@ -2,16 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-{{--        <meta name="viewport" content="width=device-width, initial-scale=1">--}}
         <title>Hexlet Blog - @yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="csrf-param" content="_token" />
-{{--        <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-{{--        <script src="{{ asset('js/app.js') }}"></script>--}}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
     <body>
-
-
     <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ route('page.index') }}">Laravel blog</a>
@@ -30,6 +26,9 @@
                         <a class="nav-link " href="{{ route('rating.index') }}">Rating</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link " href="{{ route('article.create') }}">Create an article</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link " href="{{ route('page.about') }}">About</a>
                     </li>
                 </ul>
@@ -37,8 +36,7 @@
         </nav>
     </header>
 
-
-
+    @include('flash::message')
 
     <div class="container mt-4">
         <h1>@yield('header')</h1>
