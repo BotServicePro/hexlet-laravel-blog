@@ -22,7 +22,7 @@
                     <tr>
                         <th scope="row">{{ $article->id }}</th>
                         <td>{{ $article->name }}</td>
-                        <td>{{Str::limit($article->body, 60, ' ...')}}</td>
+                        <td>{{ $article->body }}</td>
                         <td>{{ $article->likes_count }}</td>
                         <td>{{ $article->created_at }}</td>
                         <td>{{ $article->updated_at }}</td>

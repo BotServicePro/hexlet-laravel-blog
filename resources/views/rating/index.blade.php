@@ -6,19 +6,25 @@
 @section('content')
     <div class="container mt-4">
         <h1>Top 5 articles</h1>
+        <div class="mb-5">
+            <br>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th>Likes</th>
+                        <th>Created at</th>
+                    </tr>
+                    @foreach ($articles as $article)
 
-        <table style="width:100%">
-            <tr>
-                <th>Name</th>
-                <th>Likes</th>
-
-            </tr>
-            @foreach ($articles as $article)
-                <tr>
-                    <td>{{ $article->name }}</a></td>
-                    <td>{{ $article->likes_count }}</td>
-                </tr>
-            @endforeach
-        </table>
+                    <tr>
+                        <td><a href="{{ route('article.show', $article->id) }}">{{ $article->name }}</a></td>
+                        <td>{{ $article->likes_count }}</td>
+                        <td>{{ $article->created_at }}</td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
     </div>
 @endsection
