@@ -7,28 +7,61 @@
 @section('content')
 <div class="container mt-4">
     <h1>Articles</h1>
+        {{Form::open(['url' => route('article.index'), 'method' => 'GET'])}}
+            {{Form::text('search', $input)}}
+            {{Form::submit('Search!')}}
+        {{Form::close()}}
 
-    <table style="width:100%">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Body</th>
-            <th>Likes</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-        </tr>
-        @foreach ($articles as $article)
+        @if(empty($foundArticles))
+        <table style="width:100%">
             <tr>
-                <td>{{ $article->id }}</td>
-                <td><a href="{{ route('article.show', ['id' => $article->id]) }}">{{ $article->name }}</a></td>
-                <td>{{Str::limit($article->body, 200, ' ...')}}</td>
-                <td>{{ $article->likes_count }}</td>
-                <td>{{ $article->created_at }}</td>
-                <td>{{ $article->updated_at }}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Body</th>
+                <th>Likes</th>
+                <th>Created at</th>
+                <th>Updated at</th>
             </tr>
-        @endforeach
-    </table>
-    <br>
-    {{ $articles->links() }}
+            @foreach ($allArticles as $oneArticle)
+                <tr>
+                    <td>{{ $oneArticle->id }}</td>
+                    <td><a href="{{ route('article.show', ['id' => $oneArticle->id]) }}">{{ $oneArticle->name }}</a></td>
+                    <td>{{Str::limit($oneArticle->body, 200, ' ...')}}</td>
+                    <td>{{ $oneArticle->likes_count }}</td>
+                    <td>{{ $oneArticle->created_at }}</td>
+                    <td>{{ $oneArticle->updated_at }}</td>
+                </tr>
+            @endforeach
+        </table>
+        {{ $allArticles->links() }}
+        <br>
+            @else
+            @if(count($foundArticles) !== 0)
+        <h2>Found articles: {{ count($foundArticles) }}</h2>
+        <table style="width:100%">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Body</th>
+                <th>Likes</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+            </tr>
+            @foreach ($foundArticles as $oneArticle)
+                <tr>
+                    <td>{{ $oneArticle->id }}</td>
+                    <td><a href="{{ route('article.show', ['id' => $oneArticle->id]) }}">{{ $oneArticle->name }}</a></td>
+                    <td>{{Str::limit($oneArticle->body, 200, ' ...')}}</td>
+                    <td>{{ $oneArticle->likes_count }}</td>
+                    <td>{{ $oneArticle->created_at }}</td>
+                    <td>{{ $oneArticle->updated_at }}</td>
+                </tr>
+            @endforeach
+            @else
+                <h2>Found articles: {{ count($foundArticles) }}</h2>
+            @endif
+        </table>
+        <br>
+        @endif
 </div>
 @endsection

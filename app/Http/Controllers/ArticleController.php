@@ -9,10 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $articles = DB::table('articles')->orderBy('id', 'DESC')->paginate(5);
-        return view('article.index', compact('articles'));
+        $input = $request->input('search');
+        $foundArticles = '';
+        if (!empty($input)) {
+            $foundArticles = DB::table('articles')->where('name', 'ilike', "%{$input}%")->get();
+        }
+        $allArticles = DB::table('articles')->orderBy('id', 'DESC')->paginate(5);
+        return view('article.index', compact('allArticles', 'foundArticles', 'input'));
     }
 
     public function show($id)
