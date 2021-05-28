@@ -7,10 +7,10 @@
 @section('content')
 <div class="container mt-4">
     <h1>Articles</h1>
-    {{Form::open(['url' => route('article.index'), 'method' => 'GET'])}}
-    {{Form::text('search', $input)}}
-    {{Form::submit('Search!')}}
-    {{Form::close()}}
+    {{ Form::open(['url' => route('article.index'), 'method' => 'GET']) }}
+    {{ Form::text('search', $input, ['placeholder' => 'Enter article name']) }}
+    {{ Form::submit('Search!') }}
+    {{ Form::close() }}
     @if(empty($foundArticles))
         <div class="mb-5">
             <br>
@@ -28,7 +28,7 @@
                         <tr>
                             <th scope="row">{{ $oneArticle->id }}</th>
                             <td><a href="{{ route('article.show', ['id' => $oneArticle->id]) }}">{{ $oneArticle->name }}</a></td>
-                            <td>{{Str::limit($oneArticle->body, 60, ' ...')}}</td>
+                            <td>{{ Str::limit($oneArticle->body, 60, ' ...') }}</td>
                             <td>{{ $oneArticle->likes_count }}</td>
                             <td>{{ $oneArticle->created_at }}</td>
                             <td>{{ $oneArticle->updated_at }}</td>
@@ -58,7 +58,7 @@
                             <tr>
                                 <th scope="row">{{ $oneArticle->id }}</th>
                                 <td><a href="{{ route('article.show', ['id' => $oneArticle->id]) }}">{{ $oneArticle->name }}</a></td>
-                                <td>{{Str::limit($oneArticle->body, 60, ' ...')}}</td>
+                                <td>{{ Str::limit($oneArticle->body, 60, ' ...') }}</td>
                                 <td>{{ $oneArticle->likes_count }}</td>
                                 <td>{{ $oneArticle->created_at }}</td>
                                 <td>{{ $oneArticle->updated_at }}</td>

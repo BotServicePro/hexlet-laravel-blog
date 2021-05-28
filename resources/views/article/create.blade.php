@@ -23,7 +23,7 @@
         {{ Form::label('name', 'Article name') }}<br>
         {{ Form::text('name') }}<br>
         {{ Form::label('body', 'Article content') }}<br>
-        {{ Form::textarea('body') }}<br>
+        {{ Form::textarea('body', '', ['placeholder' => 'Min 500 chars']) }}<br>
         {{ Form::submit('Create') }}<br>
         {{ Form::close() }}
 @endsection
