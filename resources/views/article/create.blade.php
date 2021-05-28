@@ -18,7 +18,6 @@
                 </ul>
             </div>
         @endif
-
         {{ Form::model($article, ['url' => route('article.store')]) }}
         {{ Form::label('name', 'Article name') }}<br>
         {{ Form::text('name') }}<br>

@@ -35,7 +35,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request, [
-            'name' => 'required|unique:articles|min:5',
+            'name' => 'required|unique:articles|min:5|max:100',
             'body' => 'required|min:500',
         ]);
 
