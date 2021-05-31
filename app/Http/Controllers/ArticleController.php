@@ -36,7 +36,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $data = $this->validate($request, [
-            'name' => 'required|unique:articles|min:5|max:100',
+            'name' => 'required|unique:articles|min:3|max:100',
             'body' => 'required|min:500',
         ]);
 
@@ -64,9 +64,9 @@ class ArticleController extends Controller
         $article = DB::table('articles')->find($id);
         abort_unless($article, 404);
         $data = $this->validate($request, [
-            'name' => 'required|min:5|unique:articles,name,' . $article->id,
-            'body' => 'required|min:500',
-            'likes_count' => 'required|min:0'
+            'name' => 'required|min:3|max:100|unique:articles,name,' . $article->id,
+            'body' => 'required',
+            'likes_count' => 'min:0'
         ]);
         //$article->updated_at = Carbon::now();
 
