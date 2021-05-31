@@ -28,6 +28,10 @@ Route::get('articles/create', [ArticleController::class, 'create'])->name('artic
 
 Route::post('articles', [ArticleController::class, 'store'])->name('article.store');
 
+Route::get('articles/{id}/edit', [ArticleController::class, 'edit'])->name('article.edit');
+
+Route::patch('articles/{id}', [ArticleController::class, 'update'])->name('article.update');
+
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('article.show');
 
 
