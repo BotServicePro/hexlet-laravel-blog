@@ -24,7 +24,6 @@
                         <th scope="col">Likes</th>
                         <th scope="col">Created at</th>
                         <th scope="col">Updated at</th>
-                        <th scope="col">Settings</th>
                     </tr>
                     @foreach ($allArticles as $oneArticle)
                         <tr>
@@ -34,7 +33,6 @@
                             <td>{{ $oneArticle->likes_count }}</td>
                             <td>{{ $oneArticle->created_at }}</td>
                             <td>{{ $oneArticle->updated_at }}</td>
-                            <td><a href="{{ route('article.edit', ['id' => $oneArticle->id]) }}">Edit</a></td>
                         </tr>
                     @endforeach
                 </table>

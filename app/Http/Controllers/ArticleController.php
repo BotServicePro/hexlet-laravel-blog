@@ -47,7 +47,6 @@ class ArticleController extends Controller
         $article->save();
 
         flash('Article was added!')->success();
-        // Редирект на указанный маршрут
         return redirect()
             ->route('article.show', ['id' => $article->id]);
     }
@@ -62,26 +61,39 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $article = DB::table('articles')->find($id);
+        //$article = new Article();
+        //$article = Article::findOrFail($id);
         abort_unless($article, 404);
         $data = $this->validate($request, [
             'name' => 'required|min:3|max:100|unique:articles,name,' . $article->id,
             'body' => 'required',
             'likes_count' => 'min:0'
         ]);
-        //$article->updated_at = Carbon::now();
-
         DB::table('articles')->where('id', $id)->update([
             'name' => $data['name'],
             'body' => $data['body'],
             'likes_count' => $data['likes_count'],
             'updated_at' => Carbon::now(),
         ]);
-//
+//        $category = new Article();
+//        $category->fill($data);
+//        dump($category);
+//        //$category->save();
+//        exit;
+        flash('Article was updated!')->success();
+        return redirect(route('article.show',  compact('id')));
+    }
+
+    public function destroy($id)
+    {
+        $category = Article::find($id);
+        $article = DB::table('articles')->find($id);
+        abort_unless($article, 404);
+        //$article->delete();
+        DB::table('articles')->where('id', $id)->delete();
 //        dump($article);
 //        exit;
-//        $article->fill($data);
-//        $article->save();
-        return redirect()
-            ->route('article.index');
+        flash('Article was deleted!')->success();
+        return redirect()->route('article.index');
     }
 }

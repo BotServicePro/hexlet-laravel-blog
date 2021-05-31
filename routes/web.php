@@ -34,4 +34,6 @@ Route::patch('articles/{id}', [ArticleController::class, 'update'])->name('artic
 
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('article.show');
 
+Route::delete('articles/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
+
 
