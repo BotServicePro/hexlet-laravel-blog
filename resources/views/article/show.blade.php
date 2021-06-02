@@ -27,7 +27,7 @@
                         <td>{{ $article->likes_count }}</td>
                         <td>{{ $article->created_at }}</td>
                         <td>{{ $article->updated_at }}</td>
-                        <td><a href="{{ route('article.edit', ['id' => $article->id]) }}">Edit</a> | <a href="{{ route('article.destroy', ['id' => $article->id]) }}" data-method="delete" data-confirm="Sure?" rel="nofollow">Удалить</a></td>
+                        <td><a href="{{ route('articles.edit', ['article' => $article->id]) }}">Edit</a> | <a href="{{ route('articles.destroy', ['article' => $article->id]) }}" data-method="delete" data-confirm="Sure?" rel="nofollow">Удалить</a></td>
                     </tr>
                 </table>
             </div>

@@ -14,7 +14,7 @@
             </ul>
         </div>
     @endif
-    {{ Form::model($article, ['url' => route('article.update', $article->id), 'method' => 'PATCH']) }}
+    {{ Form::model($article, ['url' => route('articles.update', $article->id), 'method' => 'PATCH']) }}
     {{ Form::label('name', 'Article name') }}<br>
     {{ Form::text('name') }}<br><br>
     {{ Form::label('body', 'Article content') }}<br>

@@ -18,7 +18,7 @@
                     @foreach ($articles as $article)
 
                     <tr>
-                        <td><a href="{{ route('article.show', $article->id) }}">{{ $article->name }}</a></td>
+                        <td><a href="{{ route('articles.show', $article->id) }}">{{ $article->name }}</a></td>
                         <td>{{ $article->likes_count }}</td>
                         <td>{{ $article->created_at }}</td>
                     </tr>
