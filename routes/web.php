@@ -37,4 +37,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('articles', ArticleController::class);
 
+Route::get('/', function () {
+    return redirect(route('articles.index'));
+});
+
 Route::get('rating', [ArticleRatingController::class, 'rating'])->name('rating.index');

@@ -6,6 +6,9 @@ use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
+use Webmozart\Assert\Assert;
+use function PHPUnit\Framework\throwException;
 
 class ArticleController extends Controller
 {
@@ -70,6 +73,7 @@ class ArticleController extends Controller
     {
         $article = DB::table('articles')->find($article->id);
         abort_unless($article, 404);
+        //Assert::eq($article->id, 3, throw new Exception('WOOOPS, some error in $article'));
         return view('article.show', compact('article'));
     }
 
